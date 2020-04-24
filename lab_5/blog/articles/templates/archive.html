@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Архив статей</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}/static/css/article.css">
+</head>
+<body>
+    <div class="header">
+         <img src="https://avatars.mds.yandex.net/get-pdb/1874991/780cfcee-f32c-4d2b-962f-7afd5b37cc40/s1200?webp=false" />
+    </div>
+    <div class="archive">
+        {% for post in posts %}
+            <div class="one-post">
+                <h2><a href="/article/{{post.id}}"> {{ post.title }}</a></h2>
+                <div class="article-info">
+                    <div class="article-author">{{ post.author.username }}</div>
+                    <div class="article-created-date">{{ post.created_date }}</div>
+                </div>
+                <p class="article-text">{{ post.get_excerpt }}</p>
+            </div>
+        {% endfor %}
+    </div>
+<div class="post">
+        <div class="one-post">
+            <h2 class="article-all"><a href="../../"> Все статьи</a></h2>
+            <h2 class="article-title"> {{ post.title }}</h2>
+            <div class="article-info">
+                <div class="article-author">{{ post.author.username }}</div>
+                <div class="article-created-date">{{ post.created_date }}</div>
+            </div>
+            <p class="article-text">{{ post.get_excerpt }}</p>
+        </div>
+    </div>
+</body>
+</html>
